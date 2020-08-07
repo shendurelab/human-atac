@@ -1,5 +1,5 @@
 # human-atac
-## Cell barcode and demultiplexing for sci-ATAC3 runs
+## Cell barcode and demultiplexing for sci-ATAC-seq3 runs
 
 ### Overview
 We recommend first demultiplexing using BCL2FASTQ with a placeholder samplesheet and then running a second script to split reads by sample and assign barcodes. From there, generic single-cell ATAC-seq pipelines like [SnapATAC](https://github.com/r3fang/SnapATAC) should be able to process the data further into count matrices, etc.
@@ -24,12 +24,12 @@ Sample_ID,Sample_Name,index,index2
 fake,fake,NNNNNNNNNNNNNNNNNNNN,NNNNNNNNNNNNNNNNNNNN
 ```
 
-Note that the specified indices must be 20bp in length (and therefore have N(20) in file above) for 3-level sci-ATAC experiments when following our protocol.
+Note that the specified indices must be 20bp in length (and therefore have N(20) in file above) for 3-level sci-ATAC-seq experiments when following our protocol.
 
 This will split the fastq files out by lane, which can be useful for parallelization of downstream steps, but bcl2fastq has a `--no-lane-splitting` option that will output to a single file if you prefer.
 
 #### Barcode assignment and demultiplexing
-We provide `barcode_correct_sciatac.py` for demultiplexing sci-ATAC3 data by sample and assigning cell barcodes.
+We provide `barcode_correct_sciatac.py` for demultiplexing sci-ATAC-seq3 data by sample and assigning cell barcodes.
 
 ##### Sample sheet
 For the following step you must provide a sample sheet that specifies the combinations of ligation and PCR indices that define each sample. Sample sheets for this study are provided in `samplesheets` directory of this repository.
@@ -54,7 +54,7 @@ python barcode_correct_sciatac.py \
   --wells_384
 ```
 
-Here we provide the samplesheet described above (for this script and not the placeholder for bcl2fastq), the two fastq files for R1 and R2 via process substitution (`<()`), a prefix for the output `r1` and `r2` files (defaults are the values specified above), a JSON file that will be written to provide output stats about barcode correction, a flag to specify that the barcode set we are using is the 384 well set used for fetal samples in the paper. You may optionally provide the flag `-X` if the run was on NextSeq or similar where some of the barcodes will need to be reverse complemented and retrieved differently.
+Here we provide the samplesheet described above (for this script and not the placeholder for bcl2fastq), the two fastq files for R1 and R2 via process substitution (`<()`), a prefix for the output `r1` and `r2` files (defaults are the values specified above), a JSON file that will be written to provide output stats about barcode correction, a flag to specify that the barcode set we are using is the 384 well set used for fetal samples in the paper. You may optionally provide the flag `-X` if the run was on a NextSeq or similar where some of the barcodes will need to be reverse complemented and retrieved differently.
 
 The script could be modified to accept file names directly rather than the contents via process substitution -- we found this implementation to be somewhat faster and more flexible for executing small tests (e.g. could modify to use `-1 <(zcat <READ1_FASTQ_GZIPPED> | head -10000)` to run on small subset).
 

@@ -46,14 +46,13 @@ In this case, 24 samples were laid out across one 96-well plate as described in 
 
 Since samples are pooled after the first round of indexing (N5 ligation), only the N5 ligation indices will differ across samples. For the remaining sets of indices include all used barcodes for every sample. See `samplesheets` and below for examples.
 
-e.g.
+For example, if sample_1 was layed out in wells A1-A4 for the initial round of indexing, and sample 2 was layed out in wells B1-B4, your samplesheet could be as follows, where the sample position is specified by the column-ordered N5 indices.
 
 ```
 sample_id ranges
 sample_1	1-384:1-48:1-32:1,9,17,25,97,105,113,121,193,201,209,217,289,297,305,313 
 sample_2	1-384:1-48:1-32:2,10,18,26,98,106,114,122,194,202,210,218,290,298,306,314
 ```
-Here, sample_1 was layed out in wells A1-A4 for the initial round of indexing, and sample 2 was layed out in wells B1-B4, as specified by the column-ordered N5 indices.
 
 
 ##### Script

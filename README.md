@@ -80,7 +80,7 @@ Where we note the total number of input reads, the fraction with valid barcode a
 
 It will also output a pair of fastq files (r1 and r2) for each sample noted in the provided samplesheet. For example, if your samplesheet includes a sample named `sample_70_lung`, it would output `r1.sample_70_lung.fastq.gz` and `r2.sample_70_lung.fastq.gz` given the command above. These files are output uncompressed and then gzipped at the end, which we found to be faster than directly writing gzipped output at the expense of more disk usage. You could modify the script to directly write gzipped output, use alternate compression tools like `pigz`, or parallelize the compression step of this script as needed.
 
-#### Script testing
+##### Script testing
 In addition, we provide small test fastqs (`Undetermined_R1_for_test.fastq.gz` and `Undetermined_R2_for_test.fastq.gz`) which allow you to test the demux script on a smaller subset of 100000 reads (the appropriate samplesheet for these files is provided as `samplesheet_test_demux.txt`).
 
 #### Downstream analysis

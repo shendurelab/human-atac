@@ -32,7 +32,7 @@ This will split the fastq files out by lane, which can be useful for paralleliza
 We provide `barcode_correct_sciatac.py` for demultiplexing sci-ATAC-seq3 data by sample and assigning cell barcodes.
 
 ##### Sample sheet
-For the following step you must provide a sample sheet that specifies the combinations of ligation and PCR indices that define each sample. Sample sheets for this study are provided in `samplesheets` directory of this repository. 
+For the following step you must provide a sample sheet that specifies the combinations of ligation and PCR indices that define each sample. Sample sheets for this study are provided as `samplesheet_batch1_atlas.txt`, `samplesheet_batch2_atlas.txt` and `samplesheet_batch3_atlas.txt`. 
 
 In this case, 24 samples were laid out across one 96-well plate as described in [protocols.io](https://dx.doi.org/10.17504/protocols.io.be8mjhu6). The sample sheet should specify the sample_id for each sample in your experiment and the ranges of the barcodes used for the corresponding well positions. The basic format is: [N7 ligation barcode]:[P7 PCR barcode]:[P5 PCR barcode]:[N5 ligation barcode]. Note that the N7 and P7 barcodes are numbered row-wise (well A1 = 1, well A2 = 2, …, well B1 = 13 etc.) whereas N5 and P5 barcodes are numbered column-wise (well A1 = 1, well B1 = 2, …, well A2 = 9 etc.). You can specify the barcodes as ranges or list them individually separated by commas.
 

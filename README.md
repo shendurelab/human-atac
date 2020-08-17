@@ -36,8 +36,8 @@ For the following step you must provide a sample sheet that specifies the combin
 
 ```
 sample_id ranges
-sample_id_1	N7:P7:P5:N5 
-sample_id_2	N7:P7:P5:N5 
+sample_id_1	[N7 ligation barcode]:[P7 PCR barcode]:[P5 PCR barcode]:[N5 ligation barcode] 
+sample_id_2	[N7 ligation barcode]:[P7 PCR barcode]:[P5 PCR barcode]:[N5 ligation barcode] 
 ```
 
 Sample sheets for this study are provided as `samplesheet_batch1_atlas.txt`, `samplesheet_batch2_atlas.txt` and `samplesheet_batch3_atlas.txt`. 

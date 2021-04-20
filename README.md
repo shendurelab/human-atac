@@ -67,7 +67,7 @@ python barcode_correct_sciatac.py \
   --wells_384
 ```
 
-Here we provide the samplesheet described above (for this script and not the placeholder for bcl2fastq), the two fastq files for R1 and R2 via process substitution (`<()`), a prefix for the output `r1` and `r2` files (defaults are the values specified above), a JSON file that will be written to provide output stats about barcode correction, a flag to specify that the barcode set we are using is the 384 well set used for fetal samples in the paper. You may optionally provide the flag `-X` if the run was on a NextSeq or similar where some of the barcodes will need to be reverse complemented and retrieved differently.
+Here we provide the samplesheet described above (for this script and not the placeholder for bcl2fastq), the two fastq files for R1 and R2 via process substitution (`<()`), a prefix for the output `r1` and `r2` files (defaults are the values specified above), a JSON file that will be written to provide output stats about barcode correction, a flag to specify that the barcode set we are using is the 384 well set used for fetal samples in the paper. You may optionally provide the flag `-X` if the run was on a NextSeq or similar where some of the barcodes will need to be reverse complemented and retrieved differently. Note that that provided test data is in the NextSeq format, so you will need to add this flag for the indices to be read in the correct orientation.
 
 The script could be modified to accept file names directly rather than the contents via process substitution -- we found this implementation to be somewhat faster and more flexible for executing small tests (e.g. could modify to use `-1 <(zcat <READ1_FASTQ_GZIPPED> | head -10000)` to run on small subset).
 
